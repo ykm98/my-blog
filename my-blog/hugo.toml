@@ -1,0 +1,201 @@
+# 本地开发地址（生产环境构建时会自动覆盖，见 vercel.json / build.ps1）
+baseURL = "http://localhost:1313/"
+title = "Kieran 的小天地"
+theme = "PaperMod"
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
+locale = "zh-cn"
+
+[languages.zh-cn]
+  locale = "zh-cn"
+  label = "简体中文"
+  weight = 1
+  title = "Kieran 的小天地"
+
+# 站点设置
+[params]
+  env = "production"
+  description = "记录技术与生活"
+  author = "Kieran"
+  
+  # 显示阅读时间
+  ShowReadingTime = true
+  # 显示字数统计
+  ShowWordCount = true
+  # 显示代码复制按钮
+  ShowCodeCopyButtons = true
+  # 显示分享按钮
+  ShowShareButtons = false
+  # 显示文章目录
+  ShowToc = true
+  # 目录默认展开
+  TocOpen = false
+  # 显示面包屑导航
+  ShowBreadCrumbs = true
+  # 显示文章元信息
+  ShowPostNavLinks = true
+  # 代码块显示行号
+  ShowCodeLineNums = true
+  
+  # 自定义样式见 assets/css/extended/glassmorphism.css（毛玻璃主题）
+  
+  # SEO 优化
+  [params.seo]
+    metaTwitter = "@your_twitter"
+    metaSiteName = "Kieran 的小天地"
+    
+  # 社交分享
+  [params.share]
+    enable = false
+
+# 首页 Profile 模式（仿苹果风格）
+[params.profileMode]
+  enabled = true
+  title = "Kieran"
+  subtitle = "神龙摆尾 · 欢迎来到我的主页"
+  imageUrl = "/avatar.png"
+  imageWidth = 150
+  imageHeight = 150
+  imageTitle = "Kieran 的头像"
+  # 点击头像播放的音乐（放到 static/music/ 目录，支持 mp3 / flac / ogg）
+  avatarMusic = "/music/yuyai.flac"
+  
+  # 按钮配置
+  [[params.profileMode.buttons]]
+    name = "博客"
+    url = "/posts/"
+  [[params.profileMode.buttons]]
+    name = "关于"
+    url = "/about/"
+  [[params.profileMode.buttons]]
+    name = "归档"
+    url = "/archives/"
+  [[params.profileMode.buttons]]
+    name = "GitHub"
+    url = "https://github.com/ykm98"
+  [[params.profileMode.buttons]]
+    name = "邮箱"
+    url = "mailto:1330837740@qq.com"
+
+# 社交图标
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/ykm98"
+
+# 导航菜单
+[[menu.main]]
+  identifier = "home"
+  name = "首页"
+  url = "/"
+  weight = 5
+
+[[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "archives"
+  name = "归档"
+  url = "/archives/"
+  weight = 15
+
+[[menu.main]]
+  identifier = "tags"
+  name = "主题"
+  url = "/tags/"
+  weight = 20
+
+# 主题探索页配置
+[params.tagDescriptions]
+  "运维" = "Linux 服务器、部署与日常维护的学习记录"
+  "Linux" = "命令行、系统管理与基础运维"
+  "Docker" = "容器化入门与实践笔记"
+  "容器" = "容器相关概念与使用场景"
+  "学习笔记" = "边学边记的技术整理"
+  "随笔" = "转型路上的随想与记录"
+  "生活" = "工作与学习之外的小事"
+  "思考" = "关于选择与方向的反思"
+  "开始" = "博客与转型之路的起点"
+
+[[params.topicPaths]]
+  title = "运维入门路线"
+  desc = "从第一篇博客开始，逐步接触 Linux 与 Docker"
+  icon = "rocket"
+  steps = ["开始", "Linux", "Docker"]
+
+[[params.topicPaths]]
+  title = "生活随想"
+  desc = "记录转型过程中的感受与日常"
+  icon = "pen"
+  steps = ["思考", "随笔", "生活"]
+
+[[params.topicGroups]]
+  name = "技术实践"
+  icon = "🛠"
+  desc = "运维、容器与命令行相关的学习笔记"
+  tags = ["运维", "Linux", "Docker", "容器", "学习笔记"]
+
+[[params.topicGroups]]
+  name = "思考与生活"
+  icon = "✍"
+  desc = "转型感悟、随笔与日常记录"
+  tags = ["随笔", "生活", "思考", "开始"]
+
+[[menu.main]]
+  identifier = "about"
+  name = "关于"
+  url = "/about/"
+  weight = 25
+
+[[menu.main]]
+  identifier = "search"
+  name = "搜索"
+  url = "/search/"
+  weight = 30
+
+# 代码高亮配置
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "dracula"
+    tabWidth = 2
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+# 输出格式（搜索需要 JSON）
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 永久链接格式
+[permalinks]
+  posts = "/:year/:month/:title/"
+
+# 分页
+[pagination]
+  pagerSize = 10
+
+# 隐私配置
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = false
+  [privacy.twitter]
+    disable = false
+  [privacy.vimeo]
+    disable = false
+  [privacy.youtube]
+    disable = false

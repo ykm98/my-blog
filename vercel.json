@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd my-blog && hugo --gc --minify --baseURL https://$VERCEL_PROJECT_PRODUCTION_URL/",
+  "outputDirectory": "my-blog/public",
+  "installCommand": "echo skip",
+  "framework": null,
+  "env": {
+    "HUGO_VERSION": "0.164.0"
+  }
+}

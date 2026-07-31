@@ -1,0 +1,43 @@
+{{- define "main" }}
+
+{{- $tagName := .Title }}
+{{- $posts := .Pages.ByDate.Reverse }}
+{{- $desc := index site.Params.tagDescriptions $tagName }}
+
+<div class="topic-term-page">
+    <header class="topic-term-hero reveal">
+        <a href="{{ (site.GetPage "/tags/").Permalink }}" class="topic-term-back">← 返回主题探索</a>
+        <h1>{{ $tagName }}</h1>
+        {{- if $desc }}
+        <p class="topic-term-desc">{{ $desc }}</p>
+        {{- end }}
+        <span class="topic-term-count">{{ len $posts }} 篇文章</span>
+    </header>
+
+    <ul class="topic-term-list reveal">
+        {{- range $i, $page := $posts }}
+        <li class="topic-term-item" style="--item-i: {{ $i }}">
+            <a href="{{ $page.Permalink }}" class="topic-term-post">
+                <div class="topic-term-post-main">
+                    <h2>{{ $page.Title }}</h2>
+                    {{- with $page.Description }}
+                    <p>{{ . }}</p>
+                    {{- else }}
+                    {{- with $page.Summary }}
+                    <p>{{ . | plainify | truncate 120 }}</p>
+                    {{- end }}
+                    {{- end }}
+                </div>
+                <div class="topic-term-post-meta">
+                    <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2006 年 1 月 2 日" }}</time>
+                    {{- with $page.Params.categories }}
+                    <span class="topic-term-cat">{{ index . 0 }}</span>
+                    {{- end }}
+                </div>
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</div>
+
+{{- end }}
