@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "curl -L -o /tmp/hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz && tar -xzf /tmp/hugo.tar.gz -C /tmp && chmod +x /tmp/hugo && /tmp/hugo version && cd my-blog && /tmp/hugo --gc --minify --baseURL https://$VERCEL_PROJECT_PRODUCTION_URL/",
+  "buildCommand": "npm run build",
   "outputDirectory": "my-blog/public",
+  "installCommand": "echo \"skip npm install\"",
   "framework": null
 }

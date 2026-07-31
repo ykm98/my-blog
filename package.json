@@ -1,0 +1,7 @@
+{
+  "name": "kieran-blog",
+  "private": true,
+  "scripts": {
+    "build": "bash scripts/vercel-build.sh"
+  }
+}
