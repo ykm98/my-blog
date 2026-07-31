@@ -1,10 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd my-blog && hugo --gc --minify --baseURL https://$VERCEL_PROJECT_PRODUCTION_URL/",
+  "buildCommand": "cd my-blog && hugo version && hugo --gc --minify --baseURL https://$VERCEL_PROJECT_PRODUCTION_URL/",
   "outputDirectory": "my-blog/public",
-  "installCommand": "echo skip",
   "framework": null,
+  "installCommand": "curl -L https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz | tar xz && chmod +x hugo && mv hugo /usr/local/bin/hugo",
   "env": {
-    "HUGO_VERSION": "0.164.0"
+    "HUGO_VERSION": "0.164.0",
+    "HUGO_EXTENDED": "1"
   }
 }
